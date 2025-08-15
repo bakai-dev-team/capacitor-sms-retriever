@@ -2,6 +2,9 @@
 dist
 node_modules
 
+.vscode
+.idea
+
 # iOS files
 Pods
 Podfile.lock
