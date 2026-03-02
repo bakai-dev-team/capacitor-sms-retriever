@@ -1,6 +1,6 @@
 {
   "name": "@aalzehla/capacitor-sms-retriever",
-  "version": "0.0.9",
+  "version": "1.0.0",
   "description": "Capacitor plugin to retrieve SMS on Android",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -65,7 +65,7 @@
     "tslib": "^2.8.1"
   },
   "peerDependencies": {
-    "@capacitor/core": ">=7.0.0"
+    "@capacitor/core": ">=7.0.0 || >=8.0.0"
   },
   "prettier": "@ionic/prettier-config",
   "swiftlint": "@ionic/swiftlint-config",
