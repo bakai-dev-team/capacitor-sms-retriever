@@ -21,7 +21,6 @@ import com.google.android.gms.tasks.Task;
 
 @CapacitorPlugin(name = "CapacitorSmsRetriever")
 public class CapacitorSmsRetriever extends Plugin {
-
     // @PluginMethod
     // public String echo(String value) {
     //     Log.i("Echo from android", value);

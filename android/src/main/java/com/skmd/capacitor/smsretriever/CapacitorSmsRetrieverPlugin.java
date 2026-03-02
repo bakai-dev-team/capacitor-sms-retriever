@@ -54,7 +54,7 @@ public class CapacitorSmsRetrieverPlugin extends Plugin {
                     IntentFilter filter = new IntentFilter(SMS_RETRIEVED_ACTION);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                         getContext().registerReceiver(smsReceiver, filter, RECEIVER_EXPORTED);
-                    }else {
+                    } else {
                         getContext().registerReceiver(smsReceiver, filter);
                     }
                     Log.d(TAG, "SMS Registered successfully");
@@ -72,10 +72,9 @@ public class CapacitorSmsRetrieverPlugin extends Plugin {
         );
     }
 
-
     /**
      * Stops listening for incoming SMS messages.
-     * 
+     *
      * @param call The plugin call object.
      */
     @PluginMethod

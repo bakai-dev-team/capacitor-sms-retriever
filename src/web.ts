@@ -1,6 +1,6 @@
 import { WebPlugin } from '@capacitor/core';
 
-import type { CapacitorSmsRetrieverPlugin, StartSuccessResponse, } from './definitions';
+import type { CapacitorSmsRetrieverPlugin, StartSuccessResponse } from './definitions';
 
 export class CapacitorSmsRetrieverWeb extends WebPlugin implements CapacitorSmsRetrieverPlugin {
   async startListening(): Promise<StartSuccessResponse> {

@@ -13,21 +13,21 @@ public class CapacitorSmsRetrieverPlugin: CAPPlugin {
 
     @objc func present(_ call: CAPPluginCall) {
         let numberOfCharacters = call.getInt("numberOfCharacters") ?? 4
-        let pinView = PinViewController(numberOfCharacters:numberOfCharacters,returnCall: call)
-        
+        let pinView = PinViewController(numberOfCharacters: numberOfCharacters, returnCall: call)
+
         DispatchQueue.main.async {
             self.bridge?.viewController?.present(pinView, animated: true)
-           }
-           
-       }
+        }
+
+    }
 }
 
 class PinViewController: UIViewController, KAPinFieldDelegate {
     lazy var centerStackView = UIStackView()
     @IBOutlet var pinCodeTextField: KAPinField!
-//    lazy var pinCodeTextField = KAPinField()
-    private var returnCall : CAPPluginCall
-    private var numberOfCharacters:Int
+    //    lazy var pinCodeTextField = KAPinField()
+    private var returnCall: CAPPluginCall
+    private var numberOfCharacters: Int
     override func viewDidLoad() {
         super.viewDidLoad()
         makeUI()
@@ -38,14 +38,14 @@ class PinViewController: UIViewController, KAPinFieldDelegate {
         self.numberOfCharacters = numberOfCharacters
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private func makeUI() {
         self.view.backgroundColor = .white
-        
+
         centerStackView.translatesAutoresizingMaskIntoConstraints = false
         centerStackView.axis = .vertical
         centerStackView.distribution = .fillEqually
@@ -58,26 +58,25 @@ class PinViewController: UIViewController, KAPinFieldDelegate {
             properties.numberOfCharacters = numberOfCharacters // Default to 4
 
         }
-//        pinCodeTextField.properties.delegate = self
-//        pinCodeTextField.properties.numberOfCharacters = numberOfCharacters // Default to 4
+        //        pinCodeTextField.properties.delegate = self
+        //        pinCodeTextField.properties.numberOfCharacters = numberOfCharacters // Default to 4
         pinCodeTextField.becomeFirstResponder()
-         
-        centerStackView.snp.makeConstraints { (make) in
-                        make.center.equalToSuperview()
-                        make.width.equalToSuperview()
-                        make.height.equalTo(100)
-                    }
 
-           
+        centerStackView.snp.makeConstraints { (make) in
+            make.center.equalToSuperview()
+            make.width.equalToSuperview()
+            make.height.equalTo(100)
+        }
+
     }
-    
+
     func pinField(_ field: KAPinField, didFinishWith code: String) {
-      print("didFinishWith : \(code)")
+        print("didFinishWith : \(code)")
         pinCodeTextField.animateSuccess(with: "✔️") {
         }
-        returnCall.resolve(["code":code])
+        returnCall.resolve(["code": code])
         self.dismiss(animated: true) {
-            
+
         }
     }
 }
